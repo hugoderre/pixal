@@ -1,0 +1,13 @@
+#board {
+    width:500px;
+    height:500px;
+    border: 1px solid black;
+}
+
+#square {
+    position: relative;
+    background-color: blue;
+    width:10px;
+    height:10px;
+    border: 1px solid black;
+}
