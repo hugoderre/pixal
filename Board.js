@@ -1,9 +1,13 @@
 class Board {
-    constructor() {
+    constructor(size) {
         this.board = document.querySelector("#board");
-        this.size = {
-            width: 500,
-            height: 500
-        }
+        this.size = size;
+        this.init();
     }
+
+    init() {
+        this.board.style.width = this.size.x + "px";
+        this.board.style.height = this.size.y + "px";
+    }
+
 }

@@ -1,14 +1,16 @@
 class Player {
     
-    constructor() {
+    constructor(pos, hitbox, board) {
         this.player = document.querySelector("#player");
-        console.log(this.player);
-        this.x = 50;
-        this.y = 50;
-        this.keyState = {};
+        
+        this.board = board;
+        this.pos = pos;
+        this.hitbox = hitbox;
+        
         this.repeat = 10;
 
         this.initPos();
+        this.initHitbox();
         
         this.eventHandler({
             37: this.left.bind(this),
@@ -19,28 +21,33 @@ class Player {
     }
 
     initPos() {
-        this.player.style.top = this.y + "px";
-        this.player.style.left = this.x + "px";
+        this.player.style.top = this.pos.y + "px";
+        this.player.style.left = this.pos.x + "px";
+    }
+
+    initHitbox() {
+        this.player.style.width = this.hitbox.x + "px";
+        this.player.style.height = this.hitbox.y + "px";
     }
 
     top() {
-        this.y--
-        this.player.style.top = this.y + "px";
+        this.pos.y--
+        this.player.style.top = this.pos.y + "px";
     }
 
     bottom() {
-        this.y++
-        this.player.style.top = this.y + "px";
+        this.pos.y++
+        this.player.style.top = this.pos.y + "px";
     }
 
     left() {
-        this.x--
-        this.player.style.left = this.x + "px";
+        this.pos.x--
+        this.player.style.left = this.pos.x + "px";
     }
 
     right() {
-        this.x++
-        this.player.style.left = this.x + "px";
+        this.pos.x++
+        this.player.style.left = this.pos.x + "px";
     }
 
     eventHandler(keys) {
