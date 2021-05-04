@@ -4,7 +4,7 @@
     border: 1px solid black;
 }
 
-#square {
+#player {
     position: relative;
     background-color: blue;
     width:10px;
