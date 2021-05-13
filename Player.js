@@ -4,6 +4,7 @@ class Player {
         this.player = document.querySelector("#player");
         
         this.board = board;
+
         this.pos = pos;
         this.hitbox = hitbox;
         
@@ -31,21 +32,25 @@ class Player {
     }
 
     top() {
+        if(this.pos.y == 0) return; // Top limit
         this.pos.y--
         this.player.style.top = this.pos.y + "px";
     }
 
     bottom() {
+        if(this.pos.y == this.board.size.y - this.hitbox.y + 1) return; // Bottom limit
         this.pos.y++
         this.player.style.top = this.pos.y + "px";
     }
 
     left() {
+        if(this.pos.x == 0) return; // Top limit
         this.pos.x--
         this.player.style.left = this.pos.x + "px";
     }
 
     right() {
+        if(this.pos.x == this.board.size.x - this.hitbox.x + 1) return; // right limit
         this.pos.x++
         this.player.style.left = this.pos.x + "px";
     }

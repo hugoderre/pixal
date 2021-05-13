@@ -11,3 +11,9 @@ class Board {
     }
 
 }
+
+class Wall {
+    constructor(size) {
+        this.size = size;
+    }
+}

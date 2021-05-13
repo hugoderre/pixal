@@ -1,7 +1,7 @@
 let BoardInstance = new Board(
     {
-        x: 500,
-        y: 500
+        x: 200,
+        y: 200
     }
 );
 let PlayerInstance = new Player(

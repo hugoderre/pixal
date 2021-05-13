@@ -1,9 +1,16 @@
+html, body {
+    height:100%;
+}
 #board {
     border: 1px solid black;
+    position: absolute;
+    top:40vh;
+    left:50%;
+    transform: translateX(-50%);
 }
 
 #player {
     position: relative;
     background-color: blue;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
