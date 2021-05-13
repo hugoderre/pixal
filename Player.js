@@ -1,12 +1,14 @@
-class Player {
+class Player extends Entity {
     
     constructor(pos, hitbox, board) {
+        super(parent)
+        
         this.player = document.querySelector("#player");
         
         this.board = board;
 
-        this.pos = pos;
-        this.hitbox = hitbox;
+        this.setPos(pos);
+        this.setHitbox(hitbox);
         
         this.repeat = 10;
 
