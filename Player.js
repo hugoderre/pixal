@@ -33,8 +33,13 @@ class Player extends Entity {
         this.player.style.height = this.hitbox.y + "px";
     }
 
+    isCollision() {
+        
+    }
+
     top() {
         if(this.pos.y == 0) return; // Top limit
+        if(this.isCollision()) return;
         this.pos.y--
         this.player.style.top = this.pos.y + "px";
     }
