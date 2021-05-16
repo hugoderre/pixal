@@ -10,7 +10,7 @@ html, body {
 }
 
 #player {
-    position: relative;
+    position: absolute;
     background-color: blue;
     /* border: 1px solid black; */
 }

@@ -1,11 +1,14 @@
 class Board {
-    constructor(size, player) {
+    constructor(size, player, wall) {
         this.board = document.querySelector("#board");
-        this.player = player;
-
         this.size = size;
+
+        this.player = player;
+        this.wall = wall;
+
         this.initBoard();
         this.initPlayer();
+        this.initWalls();
     }
 
     initBoard() {
@@ -22,16 +25,34 @@ class Board {
             {
                 x: 10,
                 y: 10
-            }, 
+            },
             this
         )
     }
 
-}
-
-class Wall {
-    constructor(pos, size, style) {
-        this.pos = pos;
-        this.size = size;
+    initWalls() {
+        new this.wall(
+            {
+                x: 0,
+                y: 0
+            },
+            {
+                x: 100,
+                y: 100
+            }, 
+            "#000"
+        )
+        new this.wall(
+            {
+                x: 150,
+                y: 150
+            },
+            {
+                x: 100,
+                y: 100
+            },
+            "#000"
+        )
     }
+
 }
