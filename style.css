@@ -7,10 +7,10 @@ html, body {
     top:40vh;
     left:50%;
     transform: translateX(-50%);
+    overflow: hidden;
 }
 
 #player {
     position: absolute;
     background-color: blue;
-    /* border: 1px solid black; */
 }
