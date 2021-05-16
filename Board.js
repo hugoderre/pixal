@@ -22,8 +22,8 @@ class Board {
     initPlayer() {
         this.players = new this.playerClass(
             {
-                x: 100,
-                y: 100
+                x: 0,
+                y: 0
             },
             {
                 x: 10,
@@ -35,21 +35,21 @@ class Board {
 
     initWalls() {
         this.walls = [
+            // new this.wallClass(
+            //     {
+            //         x: 0,
+            //         y: 0
+            //     },
+            //     {
+            //         x: 100,
+            //         y: 100
+            //     },
+            //     "#000"
+            // ),
             new this.wallClass(
                 {
-                    x: 0,
-                    y: 0
-                },
-                {
-                    x: 100,
-                    y: 100
-                },
-                "#000"
-            ),
-            new this.wallClass(
-                {
-                    x: 150,
-                    y: 150
+                    x: 50,
+                    y: 50
                 },
                 {
                     x: 100,

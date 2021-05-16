@@ -33,50 +33,66 @@ class Player extends Entity {
         this.player.style.height = this.hitbox.y + "px";
     }
 
-    isCollision() {
-        // Board limits handling
-        switch (this.pos.y) {
-            case 0:
-            case this.board.size.y - this.hitbox.y + 1:
-                return true;
-        }
-
-        switch (this.pos.x) {
-            case 0:
-            case this.board.size.x - this.hitbox.x + 1:
-                return true;
-        }
-
-        // Wall handling
+    isCollision(direction) {
+        // Wall colision handling
         for (const key in this.board.walls) {
             if (Object.hasOwnProperty.call(this.board.walls, key)) {
-                const element = this.board.walls[key];
-                
+                const wall = this.board.walls[key];
+                // console.log(direction)
+
+
+                switch (direction) {
+                    case 'x':
+                        if (
+                            this.pos.y >= wall.pos
+                            && this.pos.y <= wall.pos.y + wall.hitbox.y
+                            && this.pos.x === wall.pos.x
+                        ) {
+                            // console.log('colision y');
+                            return true;
+                        }
+                        break;
+                    case 'y':
+                        if (
+                            this.pos.x >= wall.pos.x
+                            && this.pos.x <= wall.pos.x + wall.hitbox.x
+                            && this.pos.y === wall.pos.y
+                        ) {
+                            // console.log('colision x');
+                            return true;
+                        }
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }
 
     top() {
         if (this.pos.y == 0) return; // Top limit
-        if (this.isCollision()) return;
+        if (this.isCollision('y')) return;
         this.pos.y--
         this.player.style.top = this.pos.y + "px";
     }
 
     bottom() {
         if (this.pos.y == this.board.size.y - this.hitbox.y + 1) return; // Bottom limit
+        if (this.isCollision('y')) return;
         this.pos.y++
         this.player.style.top = this.pos.y + "px";
     }
 
     left() {
         if (this.pos.x == 0) return; // Top limit
+        if (this.isCollision('x')) return;
         this.pos.x--
         this.player.style.left = this.pos.x + "px";
     }
 
     right() {
         if (this.pos.x == this.board.size.x - this.hitbox.x + 1) return; // right limit
+        if (this.isCollision('x')) return;
         this.pos.x++
         this.player.style.left = this.pos.x + "px";
     }
