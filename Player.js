@@ -1,20 +1,20 @@
 class Player extends Entity {
-    
+
     constructor(pos, hitbox, board) {
         super(parent)
-        
+
         this.player = document.querySelector("#player");
-        
+
         this.board = board;
 
         this.setPos(pos);
         this.setHitbox(hitbox);
-        
+
         this.repeat = 10;
 
         this.initPos();
         this.initHitbox();
-        
+
         this.eventHandler({
             37: this.left.bind(this),
             38: this.top.bind(this),
@@ -34,33 +34,54 @@ class Player extends Entity {
     }
 
     isCollision() {
-        
+        // Board limits handling
+        switch (this.pos.y) {
+            case 0:
+            case this.board.size.y - this.hitbox.y + 1:
+                return true;
+        }
+
+        switch (this.pos.x) {
+            case 0:
+            case this.board.size.x - this.hitbox.x + 1:
+                return true;
+        }
+
+        // Wall handling
+        for (const key in this.board.walls) {
+            if (Object.hasOwnProperty.call(this.board.walls, key)) {
+                const element = this.board.walls[key];
+                
+            }
+        }
     }
 
     top() {
-        if(this.pos.y == 0) return; // Top limit
-        if(this.isCollision()) return;
+        if (this.pos.y == 0) return; // Top limit
+        if (this.isCollision()) return;
         this.pos.y--
         this.player.style.top = this.pos.y + "px";
     }
 
     bottom() {
-        if(this.pos.y == this.board.size.y - this.hitbox.y + 1) return; // Bottom limit
+        if (this.pos.y == this.board.size.y - this.hitbox.y + 1) return; // Bottom limit
         this.pos.y++
         this.player.style.top = this.pos.y + "px";
     }
 
     left() {
-        if(this.pos.x == 0) return; // Top limit
+        if (this.pos.x == 0) return; // Top limit
         this.pos.x--
         this.player.style.left = this.pos.x + "px";
     }
 
     right() {
-        if(this.pos.x == this.board.size.x - this.hitbox.x + 1) return; // right limit
+        if (this.pos.x == this.board.size.x - this.hitbox.x + 1) return; // right limit
         this.pos.x++
         this.player.style.left = this.pos.x + "px";
     }
+
+
 
     eventHandler(keys) {
 
