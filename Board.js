@@ -26,8 +26,8 @@ class Board {
                 y: 0
             },
             {
-                x: 10,
-                y: 10
+                x: 20,
+                y: 20
             },
             this
         )
@@ -37,8 +37,8 @@ class Board {
         this.walls = [
             new this.wallClass(
                 {
-                    x: 30,
-                    y: 50
+                    x: 15,
+                    y: 2
                 },
                 {
                     x: 50,

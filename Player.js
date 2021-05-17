@@ -41,8 +41,9 @@ class Player extends Entity {
                 switch (direction) {
                     case 'top':
                         if (
-                            this.pos.x >= wall.pos.x
-                            && this.pos.x <= wall.pos.x + wall.hitbox.x
+                            this.pos.y == 0
+                            || this.pos.x > wall.pos.x - this.hitbox.y
+                            && this.pos.x < wall.pos.x + wall.hitbox.x
                             && this.pos.y === wall.pos.y + wall.hitbox.y
                         ) {
                             return true;
@@ -50,8 +51,9 @@ class Player extends Entity {
                         break;
                     case 'bottom':
                         if (
-                            this.pos.x >= wall.pos.x
-                            && this.pos.x <= wall.pos.x + wall.hitbox.x
+                            this.pos.y == this.board.size.y - this.hitbox.y
+                            || this.pos.x > wall.pos.x - this.hitbox.y
+                            && this.pos.x < wall.pos.x + wall.hitbox.x
                             && this.pos.y === wall.pos.y - this.hitbox.y
                         ) {
                             return true;
@@ -59,8 +61,9 @@ class Player extends Entity {
                         break;
                     case 'left':
                         if (
-                            this.pos.y >= wall.pos.y
-                            && this.pos.y <= wall.pos.y + wall.hitbox.y
+                            this.pos.x == 0
+                            || this.pos.y > wall.pos.y - this.hitbox.x
+                            && this.pos.y < wall.pos.y + wall.hitbox.y
                             && this.pos.x === wall.pos.x + wall.hitbox.x
                         ) {
                             return true;
@@ -68,8 +71,9 @@ class Player extends Entity {
                         break;
                     case 'right':
                         if (
-                            this.pos.y >= wall.pos.y
-                            && this.pos.y <= wall.pos.y + wall.hitbox.y
+                            this.pos.x == this.board.size.x - this.hitbox.x
+                            || this.pos.y > wall.pos.y - this.hitbox.x
+                            && this.pos.y < wall.pos.y + wall.hitbox.y
                             && this.pos.x === wall.pos.x - this.hitbox.x
                         ) {
                             return true;
@@ -83,28 +87,24 @@ class Player extends Entity {
     }
 
     top() {
-        if (this.pos.y == 0) return; // Top limit
         if (this.isCollision('top')) return;
         this.pos.y--
         this.player.style.top = this.pos.y + "px";
     }
 
     bottom() {
-        if (this.pos.y == this.board.size.y - this.hitbox.y + 1) return; // Bottom limit
         if (this.isCollision('bottom')) return;
         this.pos.y++
         this.player.style.top = this.pos.y + "px";
     }
 
     left() {
-        if (this.pos.x == 0) return; // Top limit
         if (this.isCollision('left')) return;
         this.pos.x--
         this.player.style.left = this.pos.x + "px";
     }
 
     right() {
-        if (this.pos.x == this.board.size.x - this.hitbox.x + 1) return; // right limit
         if (this.isCollision('right')) return;
         this.pos.x++
         this.player.style.left = this.pos.x + "px";
