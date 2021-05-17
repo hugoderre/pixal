@@ -38,27 +38,40 @@ class Player extends Entity {
         for (const key in this.board.walls) {
             if (Object.hasOwnProperty.call(this.board.walls, key)) {
                 const wall = this.board.walls[key];
-                // console.log(direction)
-
-
                 switch (direction) {
-                    case 'x':
-                        if (
-                            this.pos.y >= wall.pos
-                            && this.pos.y <= wall.pos.y + wall.hitbox.y
-                            && this.pos.x === wall.pos.x
-                        ) {
-                            // console.log('colision y');
-                            return true;
-                        }
-                        break;
-                    case 'y':
+                    case 'top':
                         if (
                             this.pos.x >= wall.pos.x
                             && this.pos.x <= wall.pos.x + wall.hitbox.x
-                            && this.pos.y === wall.pos.y
+                            && this.pos.y === wall.pos.y + wall.hitbox.y
                         ) {
-                            // console.log('colision x');
+                            return true;
+                        }
+                        break;
+                    case 'bottom':
+                        if (
+                            this.pos.x >= wall.pos.x
+                            && this.pos.x <= wall.pos.x + wall.hitbox.x
+                            && this.pos.y === wall.pos.y - this.hitbox.y
+                        ) {
+                            return true;
+                        }
+                        break;
+                    case 'left':
+                        if (
+                            this.pos.y >= wall.pos.y
+                            && this.pos.y <= wall.pos.y + wall.hitbox.y
+                            && this.pos.x === wall.pos.x + wall.hitbox.x
+                        ) {
+                            return true;
+                        }
+                        break;
+                    case 'right':
+                        if (
+                            this.pos.y >= wall.pos.y
+                            && this.pos.y <= wall.pos.y + wall.hitbox.y
+                            && this.pos.x === wall.pos.x - this.hitbox.x
+                        ) {
                             return true;
                         }
                         break;
@@ -71,28 +84,28 @@ class Player extends Entity {
 
     top() {
         if (this.pos.y == 0) return; // Top limit
-        if (this.isCollision('y')) return;
+        if (this.isCollision('top')) return;
         this.pos.y--
         this.player.style.top = this.pos.y + "px";
     }
 
     bottom() {
         if (this.pos.y == this.board.size.y - this.hitbox.y + 1) return; // Bottom limit
-        if (this.isCollision('y')) return;
+        if (this.isCollision('bottom')) return;
         this.pos.y++
         this.player.style.top = this.pos.y + "px";
     }
 
     left() {
         if (this.pos.x == 0) return; // Top limit
-        if (this.isCollision('x')) return;
+        if (this.isCollision('left')) return;
         this.pos.x--
         this.player.style.left = this.pos.x + "px";
     }
 
     right() {
         if (this.pos.x == this.board.size.x - this.hitbox.x + 1) return; // right limit
-        if (this.isCollision('x')) return;
+        if (this.isCollision('right')) return;
         this.pos.x++
         this.player.style.left = this.pos.x + "px";
     }

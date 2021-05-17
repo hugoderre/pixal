@@ -35,21 +35,21 @@ class Board {
 
     initWalls() {
         this.walls = [
-            // new this.wallClass(
-            //     {
-            //         x: 0,
-            //         y: 0
-            //     },
-            //     {
-            //         x: 100,
-            //         y: 100
-            //     },
-            //     "#000"
-            // ),
             new this.wallClass(
+                {
+                    x: 30,
+                    y: 50
+                },
                 {
                     x: 50,
                     y: 50
+                },
+                "#000"
+            ),
+            new this.wallClass(
+                {
+                    x: 100,
+                    y: 100
                 },
                 {
                     x: 100,
