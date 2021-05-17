@@ -28,4 +28,8 @@ class Entity {
         element.style.backgroundColor = this.backgroundColor;
         document.getElementById('board').prepend(element)
     }
+
+    initScroll() {
+        
+    }
 }

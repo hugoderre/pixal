@@ -3,7 +3,7 @@ class Player extends Entity {
     constructor(pos, hitbox, speed, board) {
         super(parent)
 
-        this.player = document.querySelector("#player");
+        this.playerDOM = document.querySelector("#player");
         this.board = board;
         this.speed = speed;
 
@@ -19,16 +19,20 @@ class Player extends Entity {
             39: this.right.bind(this),
             40: this.bottom.bind(this)
         });
+
+        setInterval(() => {
+            this.playerDOM.style.top = this.pos.y++ + "px";
+        }, 100);
     }
 
     initPos() {
-        this.player.style.top = this.pos.y + "px";
-        this.player.style.left = this.pos.x + "px";
+        this.playerDOM.style.top = this.pos.y + "px";
+        this.playerDOM.style.left = this.pos.x + "px";
     }
 
     initHitbox() {
-        this.player.style.width = this.hitbox.x + "px";
-        this.player.style.height = this.hitbox.y + "px";
+        this.playerDOM.style.width = this.hitbox.x + "px";
+        this.playerDOM.style.height = this.hitbox.y + "px";
     }
 
     isCollision(direction) {
@@ -87,25 +91,25 @@ class Player extends Entity {
     top() {
         if (this.isCollision('top')) return;
         this.pos.y--
-        this.player.style.top = this.pos.y + "px";
+        this.playerDOM.style.top = this.pos.y + "px";
     }
 
     bottom() {
         if (this.isCollision('bottom')) return;
         this.pos.y++
-        this.player.style.top = this.pos.y + "px";
+        this.playerDOM.style.top = this.pos.y + "px";
     }
 
     left() {
         if (this.isCollision('left')) return;
         this.pos.x--
-        this.player.style.left = this.pos.x + "px";
+        this.playerDOM.style.left = this.pos.x + "px";
     }
 
     right() {
         if (this.isCollision('right')) return;
         this.pos.x++
-        this.player.style.left = this.pos.x + "px";
+        this.playerDOM.style.left = this.pos.x + "px";
     }
 
 
