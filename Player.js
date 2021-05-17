@@ -1,16 +1,14 @@
 class Player extends Entity {
 
-    constructor(pos, hitbox, board) {
+    constructor(pos, hitbox, speed, board) {
         super(parent)
 
         this.player = document.querySelector("#player");
-
         this.board = board;
+        this.speed = speed;
 
         this.setPos(pos);
         this.setHitbox(hitbox);
-
-        this.repeat = 10;
 
         this.initPos();
         this.initHitbox();
@@ -124,7 +122,7 @@ class Player extends Entity {
                 timers[key] = null;
                 keys[key]();
                 if (this.repeat !== 0)
-                    timers[key] = setInterval(keys[key], this.repeat);
+                    timers[key] = setInterval(keys[key], this.speed);
             }
             return false;
         };

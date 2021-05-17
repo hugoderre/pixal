@@ -29,6 +29,7 @@ class Board {
                 x: 20,
                 y: 20
             },
+            1,
             this
         )
     }
