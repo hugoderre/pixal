@@ -10,7 +10,21 @@ html, body {
     overflow: hidden;
 }
 
-#player {
+.player {
     position: absolute;
     background-color: blue;
+    z-index: 10;
+}
+
+.restart {
+    font-family: 'Press Start 2P', cursive;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    position: absolute;
+    top:30vh;
+    left:50%;
+    transform: translateX(-50%);
+    border:1px solid black;
+    padding:10px 20px;
 }

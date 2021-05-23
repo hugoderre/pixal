@@ -45,7 +45,8 @@ class Board {
                     x: 50,
                     y: 50
                 },
-                "#000"
+                "#000",
+                this
             ),
             new this.wallClass(
                 {
@@ -56,7 +57,8 @@ class Board {
                     x: 100,
                     y: 100
                 },
-                "#000"
+                "#000",
+                this
             )
         ]
     }
