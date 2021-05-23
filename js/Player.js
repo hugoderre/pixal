@@ -2,7 +2,7 @@ class Player extends Entity {
 
     constructor(pos, hitbox, speed, board) {
         super(parent)
-
+        
         this.board = board;
         this.speed = speed;
         this.classList = [
@@ -15,16 +15,18 @@ class Player extends Entity {
         this.playerDOM = this.setContainer()
 
         this.keyHandler({
+            32: this.fireshot.bind(this),
             37: this.left.bind(this),
             38: this.top.bind(this),
             39: this.right.bind(this),
             40: this.bottom.bind(this)
         });
 
-        this.initScroll();
+        // this.initScroll();
+        this.fireshot()
     }
 
-    
+
 
     top() {
         if (this.isCollision('top')) return;
@@ -53,7 +55,6 @@ class Player extends Entity {
 
 
     keyHandler(keys) {
-
         let timers = {};
 
         document.onkeydown = function (event) {
@@ -84,6 +85,21 @@ class Player extends Entity {
                     clearInterval(timers[key]);
             timers = {};
         };
+    }
+
+    fireshot() {
+        if (!this.coolDown(1000)) return;
+        this.fireshot = new Fireshot(
+            {
+                x: 100,
+                y: 125
+            },
+            {
+                x: 30,
+                y: 30
+            },
+            this
+        )
     }
 }
 

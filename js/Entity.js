@@ -1,10 +1,4 @@
 class Entity {
-    constructor() {
-        this.pos;
-        this.hitbox;
-        this.backgroundColor;
-        this.container;
-    }
 
     setPos(pos) {
         this.pos = pos;
@@ -92,8 +86,16 @@ class Entity {
 
     initScroll(bottomCollision = true) {
         setInterval(() => {
-            if(bottomCollision && this.isCollision('bottom')) return;
+            if (bottomCollision && this.isCollision('bottom')) return;
             this.container.style.top = this.pos.y++ + "px";
         }, 100);
+    }
+
+    coolDown(time) {
+        if (!this.fireCoolDown)
+            this.fireCoolDown = Date.now();
+        if (Date.now() < this.fireCoolDown + time) return;
+        delete this.fireCoolDown;
+        return true;
     }
 }
