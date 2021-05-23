@@ -22,7 +22,7 @@ class Player extends Entity {
             40: this.bottom.bind(this)
         });
 
-        // this.initScroll();
+        this.initScroll();
         this.fireshot()
     }
 
@@ -90,14 +90,11 @@ class Player extends Entity {
     fireshot() {
         if (!this.coolDown(1000)) return;
         this.fireshot = new Fireshot(
-            {
-                x: 100,
-                y: 125
-            },
-            {
+            { // Hitbox
                 x: 30,
                 y: 30
             },
+            3, // Speed
             this
         )
     }

@@ -9,6 +9,6 @@ class Wall extends Entity {
         this.setHitbox(hitbox)
         this.setBackgroundColor(backgroundColor)
         this.setContainer()
-        // this.initScroll(false)
+        this.initScroll(false)
     }
 }

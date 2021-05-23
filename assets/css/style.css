@@ -21,7 +21,9 @@ html, body {
 }
 
 .fireshot {
-    background-color:red;
+    background-image: url('../img/fireshot.png');
+    background-position-y: 126px;
+    transform: rotate(315deg);
 }
 
 .restart {
