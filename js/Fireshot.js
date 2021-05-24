@@ -17,10 +17,11 @@ class Fireshot extends Entity {
     }
 
     shotAction() {
-        this.dynamicPos = this.pos.y;
+        this.fireShotPosY = this.pos.y;
+        this.fireShotPosX = this.pos.x;
         let inter = setInterval(() => {
-            this.fireshotDOM.style.top = this.dynamicPos + 'px';
-            this.dynamicPos = this.dynamicPos - this.frameSpeed;
+            this.fireshotDOM.style.top = this.fireShotPosY + 'px';
+            this.fireShotPosY = this.fireShotPosY - this.frameSpeed;
             if(this.handleShotCollision()) {
                 clearInterval(inter);
                 this.destroyEntity(this.fireshotDOM, 500);
@@ -33,9 +34,9 @@ class Fireshot extends Entity {
             if (Object.hasOwnProperty.call(this.board.walls, key)) {
                 const wall = this.board.walls[key];
                 if (
-                    this.pos.x > wall.pos.x - this.hitbox.y
-                    && this.pos.x < wall.pos.x + wall.hitbox.x
-                    && (this.dynamicPos === wall.pos.y + wall.hitbox.y || this.dynamicPos === wall.pos.y + wall.hitbox.y - this.frameSpeed)
+                    this.fireShotPosX > wall.pos.x - this.hitbox.y
+                    && this.fireShotPosX < wall.pos.x + wall.hitbox.x
+                    && (this.fireShotPosY === wall.pos.y + wall.hitbox.y || this.fireShotPosY === wall.pos.y + wall.hitbox.y - this.frameSpeed)
                 ) {
                     delete this.board.walls[key]
                     wall.DOMContainer.classList.add('fade-out');

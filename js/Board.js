@@ -22,8 +22,8 @@ class Board {
     initPlayer() {
         this.players = new this.playerClass(
             {
-                x: 100,
-                y: 125
+                x: 300,
+                y: 300
             },
             {
                 x: 30,
