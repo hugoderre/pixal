@@ -48,19 +48,45 @@ class Board {
                 "#000",
                 this
             )
-            // ,
-            // new this.wallClass(
-            //     {
-            //         x: 100,
-            //         y: 100
-            //     },
-            //     {
-            //         x: 100,
-            //         y: 100
-            //     },
-            //     "#000",
-            //     this
-            // )
+            ,
+            new this.wallClass(
+                {
+                    x: 100,
+                    y: 100
+                },
+                {
+                    x: 100,
+                    y: 100
+                },
+                "#000",
+                this
+            )
+            ,
+            new this.wallClass(
+                {
+                    x: 250,
+                    y: 70
+                },
+                {
+                    x: 100,
+                    y: 50
+                },
+                "#000",
+                this
+            )
+            ,
+            new this.wallClass(
+                {
+                    x: 380,
+                    y: -100
+                },
+                {
+                    x: 100,
+                    y: 100
+                },
+                "#000",
+                this
+            )
         ]
     }
 }

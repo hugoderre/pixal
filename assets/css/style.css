@@ -26,6 +26,30 @@ html, body {
     transform: rotate(315deg);
 }
 
+.fireshotBurn {
+    background-image: url('../img/fireshot.png');
+    background-position-y: 110px;
+    background-position-x: 175px;
+    transform: rotate(270deg);
+}
+
+.fade-out {
+    animation: fadeOut ease 0.5s;
+    -webkit-animation: fadeOut ease 0.5s;
+    -moz-animation: fadeOut ease 0.5s;
+    -o-animation: fadeOut ease 0.5s;
+    -ms-animation: fadeOut ease 0.5s;
+}
+
+@keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+
 .restart {
     font-family: 'Press Start 2P', cursive;
     text-decoration: none;

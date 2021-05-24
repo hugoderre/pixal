@@ -13,21 +13,21 @@ class Entity {
     }
 
     setContainer() {
-        this.container = document.createElement('div');
-        this.container.style.position = 'absolute';
-        this.container.style.top = this.pos.y + 'px';
-        this.container.style.left = this.pos.x + 'px';
-        this.container.style.height = this.hitbox.y + 'px';
-        this.container.style.width = this.hitbox.x + 'px';
-        this.container.style.backgroundColor = this.backgroundColor;
+        this.DOMContainer = document.createElement('div');
+        this.DOMContainer.style.position = 'absolute';
+        this.DOMContainer.style.top = this.pos.y + 'px';
+        this.DOMContainer.style.left = this.pos.x + 'px';
+        this.DOMContainer.style.height = this.hitbox.y + 'px';
+        this.DOMContainer.style.width = this.hitbox.x + 'px';
+        this.DOMContainer.style.backgroundColor = this.backgroundColor;
 
         for (const className of this.classList) {
-            this.container.classList.add(className);
+            this.DOMContainer.classList.add(className);
         }
 
-        document.getElementById('board').prepend(this.container)
+        document.getElementById('board').prepend(this.DOMContainer)
 
-        return this.container;
+        return this.DOMContainer;
     }
 
     isCollision(direction) {
@@ -41,7 +41,7 @@ class Entity {
                             this.pos.y == 0
                             || this.pos.x > wall.pos.x - this.hitbox.y
                             && this.pos.x < wall.pos.x + wall.hitbox.x
-                            && this.pos.y === wall.pos.y + wall.hitbox.y
+                            && (this.pos.y === wall.pos.y + wall.hitbox.y || this.pos.y === wall.pos.y + wall.hitbox.y - 1)
                         ) {
                             this.pos.y++
                             return true;
@@ -87,7 +87,7 @@ class Entity {
     initScroll(bottomCollision = true) {
         setInterval(() => {
             if (bottomCollision && this.isCollision('bottom')) return;
-            this.container.style.top = this.pos.y++ + "px";
+            this.DOMContainer.style.top = this.pos.y++ + "px";
         }, 100);
     }
 
@@ -97,5 +97,9 @@ class Entity {
         if (Date.now() < this.fireCoolDown + time) return;
         delete this.fireCoolDown;
         return true;
+    }
+
+    destroyEntity(toDestroy, delay) {
+        setTimeout(() => toDestroy.remove(), delay);
     }
 }

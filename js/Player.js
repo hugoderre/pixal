@@ -88,13 +88,13 @@ class Player extends Entity {
     }
 
     fireshot() {
-        if (!this.coolDown(1000)) return;
+        if (!this.coolDown(300)) return;
         this.fireshot = new Fireshot(
             { // Hitbox
                 x: 30,
                 y: 30
             },
-            3, // Speed
+            1,
             this
         )
     }
