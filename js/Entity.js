@@ -8,10 +8,6 @@ class Entity {
         this.hitbox = hitbox;
     }
 
-    setBackgroundColor(backgroundColor) {
-        this.backgroundColor = backgroundColor;
-    }
-
     setContainer() {
         this.DOMContainer = document.createElement('div');
         this.DOMContainer.style.position = 'absolute';
@@ -19,13 +15,14 @@ class Entity {
         this.DOMContainer.style.left = this.pos.x + 'px';
         this.DOMContainer.style.height = this.hitbox.y + 'px';
         this.DOMContainer.style.width = this.hitbox.x + 'px';
-        this.DOMContainer.style.backgroundColor = this.backgroundColor;
 
         for (const className of this.classList) {
             this.DOMContainer.classList.add(className);
         }
+        
+        this.sprite.setSprite(this);
 
-        document.getElementById('board').prepend(this.DOMContainer)
+        document.getElementById('board').prepend(this.DOMContainer);
 
         return this.DOMContainer;
     }

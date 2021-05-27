@@ -30,6 +30,7 @@ class Board {
                 y: 30
             },
             1,
+            new Sprite('../assets/img/spaceship.png'),
             this
         )
     }
@@ -42,10 +43,10 @@ class Board {
                     y: 2
                 },
                 {
-                    x: 50,
-                    y: 50
+                    x: 100,
+                    y: 100
                 },
-                "#000",
+                new Sprite('../assets/img/asteroids.png'),
                 this
             )
             ,
@@ -58,7 +59,7 @@ class Board {
                     x: 100,
                     y: 100
                 },
-                "#000",
+                new Sprite('../assets/img/asteroids.png'),
                 this
             )
             ,
@@ -69,9 +70,9 @@ class Board {
                 },
                 {
                     x: 100,
-                    y: 50
+                    y: 100
                 },
-                "#000",
+                new Sprite('../assets/img/asteroids.png'),
                 this
             )
             ,
@@ -84,7 +85,7 @@ class Board {
                     x: 100,
                     y: 100
                 },
-                "#000",
+                new Sprite('../assets/img/asteroids.png'),
                 this
             )
         ]

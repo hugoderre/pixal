@@ -1,10 +1,11 @@
 class Player extends Entity {
 
-    constructor(pos, hitbox, speed, board) {
+    constructor(pos, hitbox, speed, sprite, board) {
         super(parent)
         
         this.board = board;
         this.speed = speed;
+        this.sprite = sprite;
         this.classList = [
             'player'
         ];
@@ -90,11 +91,12 @@ class Player extends Entity {
     fireshot() {
         if (!this.coolDown(300)) return;
         this.fireshot = new Fireshot(
-            { // Hitbox
+            {
                 x: 30,
                 y: 30
             },
             1,
+            new Sprite('../assets/img/fireshot.png'),
             this
         )
     }

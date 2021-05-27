@@ -1,9 +1,10 @@
 class Fireshot extends Entity {
-    constructor(hitbox, frameSpeed, player) {
+    constructor(hitbox, frameSpeed, sprite, player) {
         super(parent)
         this.board = player.board;
-        this.player = player;
         this.frameSpeed = frameSpeed;
+        this.sprite = sprite;
+        this.player = player;
         this.pos = this.player.pos
 
         this.hitbox = hitbox;
