@@ -16,12 +16,10 @@ html, body {
     height: 300px!important;
     background-size: 30px;
     background-repeat: no-repeat;
-    background-image: url('../img/spaceship.png');
     z-index: 10;
 }
 
 .fireshot {
-    background-image: url('../img/fireshot.png');
     background-position-y: 126px;
     transform: rotate(315deg);
 }
