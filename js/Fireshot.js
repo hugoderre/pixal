@@ -14,6 +14,7 @@ class Fireshot extends Entity {
         ];
 
         this.fireshotDOM = this.setContainer()
+        this.sprite.setSprite(this)
         this.shotAction();
     }
 

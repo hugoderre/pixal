@@ -19,8 +19,6 @@ class Entity {
         for (const className of this.classList) {
             this.DOMContainer.classList.add(className);
         }
-        
-        this.sprite.setSprite(this);
 
         document.getElementById('board').prepend(this.DOMContainer);
 
@@ -89,10 +87,10 @@ class Entity {
     }
 
     coolDown(time) {
-        if (!this.fireCoolDown)
-            this.fireCoolDown = Date.now();
-        if (Date.now() < this.fireCoolDown + time) return;
-        delete this.fireCoolDown;
+        if (!this.CD)
+            this.CD = Date.now();
+        if (Date.now() < this.CD + time) return;
+        delete this.CD;
         return true;
     }
 

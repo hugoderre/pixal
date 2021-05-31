@@ -21,6 +21,7 @@ class Board {
 
     initPlayer() {
         this.players = new this.playerClass(
+            this,
             {
                 x: 300,
                 y: 300
@@ -30,14 +31,14 @@ class Board {
                 y: 30
             },
             1,
-            new Sprite('../assets/img/spaceship.png'),
-            this
+            new Sprite('../assets/img/spaceship.png', true),
         )
     }
 
     initWalls() {
         this.walls = [
             new this.wallClass(
+                this,
                 {
                     x: 15,
                     y: 2
@@ -47,10 +48,10 @@ class Board {
                     y: 100
                 },
                 new Sprite('../assets/img/asteroids.png'),
-                this
             )
             ,
             new this.wallClass(
+                this,
                 {
                     x: 100,
                     y: 100
@@ -60,10 +61,10 @@ class Board {
                     y: 100
                 },
                 new Sprite('../assets/img/asteroids.png'),
-                this
             )
             ,
             new this.wallClass(
+                this,
                 {
                     x: 250,
                     y: 70
@@ -73,10 +74,10 @@ class Board {
                     y: 100
                 },
                 new Sprite('../assets/img/asteroids.png'),
-                this
             )
             ,
             new this.wallClass(
+                this,
                 {
                     x: 380,
                     y: -100
@@ -86,7 +87,6 @@ class Board {
                     y: 100
                 },
                 new Sprite('../assets/img/asteroids.png'),
-                this
             )
         ]
     }

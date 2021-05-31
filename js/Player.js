@@ -1,6 +1,6 @@
 class Player extends Entity {
 
-    constructor(pos, hitbox, speed, sprite, board) {
+    constructor(board, pos, hitbox, speed, sprite = '') {
         super(parent)
         
         this.board = board;
@@ -14,6 +14,10 @@ class Player extends Entity {
         this.setHitbox(hitbox);
 
         this.playerDOM = this.setContainer()
+        // Setup sprite if defined
+        if(this.sprite instanceof Sprite) {
+            this.sprite.setSprite(this);
+        }
 
         this.keyHandler({
             32: this.fireshot.bind(this),
@@ -96,7 +100,7 @@ class Player extends Entity {
                 y: 30
             },
             1,
-            new Sprite('../assets/img/fireshot.png'),
+            new Sprite('../assets/img/fireshot.png', true),
             this
         )
     }
