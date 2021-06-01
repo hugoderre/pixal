@@ -13,16 +13,14 @@ class Sprite {
             while (true) {
                 let cursorX = 0;
                 let cursorY = 0;
-                for (let i = 0; i < countX * countY; i++) {
-                    entity.DOMContainer.style.backgroundPosition = cursorX + "px " + cursorY + "px";
-                    console.log(entity.DOMContainer.style.backgroundPosition);
+                for (let i = 0; i < countX * countY / 2 - 1; i++) {
+                    entity.DOMContainer.style.backgroundPosition = -cursorX + "px " + -cursorY + "px";
+                    cursorX += imgWidth / countX;
                     if (cursorX == imgWidth) {
                         cursorY += imgHeight / countY;
                         cursorX = 0;
-                        break;
                     }
-                    cursorX += imgWidth / countX;
-                    await timer(1000);
+                    await timer(40);
                 }
             }
         }

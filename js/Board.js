@@ -44,8 +44,8 @@ class Board {
                     y: 2
                 },
                 {
-                    x: 100,
-                    y: 100
+                    x: 128,
+                    y: 128
                 },
                 new Sprite('../assets/img/asteroids.png'),
             )
@@ -57,8 +57,8 @@ class Board {
                     y: 100
                 },
                 {
-                    x: 100,
-                    y: 100
+                    x: 128,
+                    y: 128
                 },
                 new Sprite('../assets/img/asteroids.png'),
             )
@@ -70,8 +70,8 @@ class Board {
                     y: 70
                 },
                 {
-                    x: 100,
-                    y: 100
+                    x: 128,
+                    y: 128
                 },
                 new Sprite('../assets/img/asteroids.png'),
             )
@@ -83,8 +83,8 @@ class Board {
                     y: -100
                 },
                 {
-                    x: 100,
-                    y: 100
+                    x: 128,
+                    y: 128
                 },
                 new Sprite('../assets/img/asteroids.png'),
             )
