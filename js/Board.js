@@ -1,8 +1,9 @@
 class Board {
-    constructor(size, playerClass, wallClass) {
+    constructor(size, backgroundClass, playerClass, wallClass) {
         this.board = document.querySelector("#board");
         this.size = size;
 
+        this.backgroundClass = backgroundClass;
         this.playerClass = playerClass;
         this.wallClass = wallClass;
 
@@ -10,8 +11,13 @@ class Board {
         this.walls = {};
 
         this.initBoard();
+        this.initBackground();
         this.initWalls();
         this.initPlayer();
+    }
+
+    initBackground() {
+        this.background = new this.backgroundClass(this, '../assets/img/background.png');
     }
 
     initBoard() {
