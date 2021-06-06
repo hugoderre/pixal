@@ -1,7 +1,7 @@
 let BoardInstance = new Board(
     {
-        x: 600,
-        y: 400
+        x: 512,
+        y: 512
     },
     Background,
     Player,

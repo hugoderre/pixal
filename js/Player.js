@@ -5,6 +5,7 @@ class Player extends Entity {
         
         this.board = board;
         this.speed = speed;
+        this.scrollSpeed = 20;
         this.sprite = sprite;
         this.classList = [
             'player'
@@ -27,7 +28,7 @@ class Player extends Entity {
             40: this.bottom.bind(this)
         });
 
-        this.initScroll();
+        this.initScroll(this.scrollSpeed, false);
         this.fireshot()
     }
 

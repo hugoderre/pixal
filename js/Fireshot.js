@@ -6,7 +6,7 @@ class Fireshot extends Entity {
         this.sprite = sprite;
         this.player = player;
         this.pos = this.player.pos
-
+        this.createTime = Date.now();
         this.hitbox = hitbox;
 
         this.classList = [
@@ -16,6 +16,7 @@ class Fireshot extends Entity {
         this.fireshotDOM = this.setContainer()
         this.sprite.setSprite(this)
         this.shotAction();
+        this.destroy();
     }
 
     shotAction() {

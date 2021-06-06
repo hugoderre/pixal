@@ -79,11 +79,11 @@ class Entity {
         }
     }
 
-    initScroll(bottomCollision = true) {
+    initScroll(scrollSpeed, bottomCollision = true) {
         setInterval(() => {
             if (bottomCollision && this.isCollision('bottom')) return;
             this.DOMContainer.style.top = this.pos.y++ + "px";
-        }, 100);
+        }, scrollSpeed);
     }
 
     coolDown(time) {

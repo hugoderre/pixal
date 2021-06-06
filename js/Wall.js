@@ -6,11 +6,12 @@ class Wall extends Entity {
         ];
         this.board = board;
         this.sprite = sprite;
+        this.scrollSpeed = 20;
         
         this.setPos(pos);
         this.setHitbox(hitbox);
         this.setContainer();
-        this.initScroll(false);
+        this.initScroll(this.scrollSpeed, false);
         // Setup sprite if defined
         if(this.sprite instanceof Sprite) {
             this.sprite.setSprite(this, 8, 8, 1024, 1024);

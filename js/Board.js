@@ -1,6 +1,6 @@
 class Board {
     constructor(size, backgroundClass, playerClass, wallClass) {
-        this.board = document.querySelector("#board");
+        this.DOMContainer = document.querySelector("#board");
         this.size = size;
 
         this.backgroundClass = backgroundClass;
@@ -21,8 +21,8 @@ class Board {
     }
 
     initBoard() {
-        this.board.style.width = this.size.x + "px";
-        this.board.style.height = this.size.y + "px";
+        this.DOMContainer.style.width = this.size.x + "px";
+        this.DOMContainer.style.height = this.size.y + "px";
     }
 
     initPlayer() {
