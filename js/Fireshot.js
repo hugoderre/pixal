@@ -51,6 +51,8 @@ class Fireshot extends Entity {
         }
     }
 
-    
+    destroy() {
+        this.destroyEntity(this.fireshotDOM, 2000);
+    }
 
 }

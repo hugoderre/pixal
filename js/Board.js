@@ -42,58 +42,17 @@ class Board {
     }
 
     initWalls() {
-        this.walls = [
-            new this.wallClass(
-                this,
-                {
-                    x: 15,
-                    y: 2
-                },
-                {
-                    x: 128,
-                    y: 128
-                },
-                new Sprite('../assets/img/asteroids.png'),
+        this.walls = []
+        setInterval(() => {
+            this.walls.push(
+                new this.wallClass(
+                    this,
+                    {
+                        x: 128,
+                        y: 128
+                    },
+                )
             )
-            ,
-            new this.wallClass(
-                this,
-                {
-                    x: 100,
-                    y: 100
-                },
-                {
-                    x: 128,
-                    y: 128
-                },
-                new Sprite('../assets/img/asteroids.png'),
-            )
-            ,
-            new this.wallClass(
-                this,
-                {
-                    x: 250,
-                    y: 70
-                },
-                {
-                    x: 128,
-                    y: 128
-                },
-                new Sprite('../assets/img/asteroids.png'),
-            )
-            ,
-            new this.wallClass(
-                this,
-                {
-                    x: 380,
-                    y: -100
-                },
-                {
-                    x: 128,
-                    y: 128
-                },
-                new Sprite('../assets/img/asteroids.png'),
-            )
-        ]
+        }, 1500)
     }
 }

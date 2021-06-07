@@ -94,7 +94,7 @@ class Entity {
         return true;
     }
 
-    destroyEntity(toDestroy, delay) {
+    destroyEntity(toDestroy, delay = 0) {
         setTimeout(() => toDestroy.remove(), delay);
     }
 }
