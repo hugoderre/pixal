@@ -17,6 +17,7 @@ class Wall extends Entity {
         if(this.sprite instanceof Sprite) {
             this.sprite.setSprite(this, 8, 8, 1024, 1024);
         }
+        this.destroy();
     }
 
     randomPos() {
@@ -25,5 +26,10 @@ class Wall extends Entity {
         pos.x = Math.floor(Math.random() * limitX); ;
         pos.y = -100;
         return pos;
+    }
+
+    destroy() {
+        console.log(this);
+        this.destroyEntity(this.DOMContainer, 15000);
     }
 }
