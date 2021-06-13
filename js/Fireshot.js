@@ -1,7 +1,7 @@
 import Entity from './Entity.js'
 import { Animations } from './Utils.js';
 
-export default class Fireshot extends Entity {
+class Fireshot extends Entity {
     constructor(hitbox, frameSpeed, sprite, player) {
         super(parent)
         this.board = player.board;
@@ -59,3 +59,5 @@ export default class Fireshot extends Entity {
     }
 
 }
+
+export default Fireshot

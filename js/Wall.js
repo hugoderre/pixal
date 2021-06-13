@@ -1,7 +1,7 @@
-import Entity from "./Entity.js";
+import DynamicEntity from "./DynamicEntity.js";
 import Sprite from "./Sprite.js";
 
-class Wall extends Entity {
+class Wall extends DynamicEntity {
     constructor(board, hitbox, sprite = new Sprite('../assets/img/asteroids.png')) {
         super(parent);
         this.classList = [
