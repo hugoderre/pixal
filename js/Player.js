@@ -1,4 +1,8 @@
-class Player extends Entity {
+import Entity from './Entity.js';
+import Fireshot from './Fireshot.js'
+import Sprite from './Sprite.js';
+
+export default class Player extends Entity {
 
     constructor(board, pos, hitbox, speed, sprite = '') {
         super(parent)

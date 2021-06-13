@@ -7,7 +7,6 @@ class Background {
     }
 
     setBackground() {
-        console.log(this.board.size.y);
         this.DOMContainer = document.createElement('div');
         this.DOMContainer.style.backgroundImage = "url(" + this.source + ")";
         this.DOMContainer.style.width = this.board.size.x + "px";
@@ -31,3 +30,5 @@ class Background {
         this.board.DOMContainer.appendChild(this.DOMContainer);
     }
 }
+
+export default Background

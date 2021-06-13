@@ -1,11 +1,20 @@
-class Board {
-    constructor(size, backgroundClass, playerClass, wallClass) {
-        this.DOMContainer = document.querySelector("#board");
-        this.size = size;
+import Background from './Background.js'
+import Player from './Player.js'
+import Wall from './Wall.js'
+import Sprite from './Sprite.js'
 
-        this.backgroundClass = backgroundClass;
-        this.playerClass = playerClass;
-        this.wallClass = wallClass;
+class Board {
+    constructor() {
+        this.DOMContainer = document.querySelector("#board");
+        
+        this.size = {
+            x: 512,
+            y: 512
+        };
+
+        this.backgroundClass = Background;
+        this.playerClass = Player;
+        this.wallClass = Wall;
 
         this.players = {};
         this.walls = {};
@@ -55,4 +64,11 @@ class Board {
             )
         }, 2000)
     }
+
+    initHUD() {
+        
+    }
 }
+
+new Board()
+export default Board

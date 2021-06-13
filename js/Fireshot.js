@@ -1,4 +1,7 @@
-class Fireshot extends Entity {
+import Entity from './Entity.js'
+import { Animations } from './Utils.js';
+
+export default class Fireshot extends Entity {
     constructor(hitbox, frameSpeed, sprite, player) {
         super(parent)
         this.board = player.board;
@@ -16,7 +19,7 @@ class Fireshot extends Entity {
         this.fireshotDOM = this.setContainer()
         this.sprite.setSprite(this)
         this.shotAction();
-        this.destroy();
+        this.destroyFireshot(2000);
     }
 
     shotAction() {
@@ -42,17 +45,17 @@ class Fireshot extends Entity {
                     && (this.fireShotPosY === wall.pos.y + wall.hitbox.y || this.fireShotPosY === wall.pos.y + wall.hitbox.y - this.frameSpeed)
                 ) {
                     delete this.board.walls[key]
-                    wall.DOMContainer.classList.add('fade-out');
+                    Animations.fadeOut(wall.DOMContainer)
                     this.destroyEntity(wall.DOMContainer, 500);
-                    this.fireshotDOM.classList.add('fade-out');
+                    Animations.fadeOut(this.fireshotDOM)
                     return true;
                 }
             }
         }
     }
 
-    destroy() {
-        this.destroyEntity(this.fireshotDOM, 2000);
+    destroyFireshot(delay) {
+        this.destroyEntity(this.fireshotDOM, delay);
     }
 
 }

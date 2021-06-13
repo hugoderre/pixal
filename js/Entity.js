@@ -35,7 +35,7 @@ class Entity {
                         if (
                             this.pos.y == 0
                             || this.pos.x > wall.pos.x - this.hitbox.y
-                            && this.pos.x < wall.pos.x + wall.hitbox.x
+                            && this.pos.x < wall.pos.x + wall.hitbox.x 
                             && (this.pos.y === wall.pos.y + wall.hitbox.y || this.pos.y === wall.pos.y + wall.hitbox.y - 1)
                         ) {
                             this.pos.y++
@@ -94,7 +94,11 @@ class Entity {
         return true;
     }
 
-    destroyEntity(toDestroy, delay = 0) {
-        setTimeout(() => toDestroy.remove(), delay);
+    destroyEntity(toDestroy, delay = 0, options = {}) {
+        setTimeout(() => {
+            toDestroy.remove()
+        }, delay);
     }
 }
+
+export default Entity

@@ -1,3 +1,6 @@
+import Entity from "./Entity.js";
+import Sprite from "./Sprite.js";
+
 class Wall extends Entity {
     constructor(board, hitbox, sprite = new Sprite('../assets/img/asteroids.png')) {
         super(parent);
@@ -29,7 +32,8 @@ class Wall extends Entity {
     }
 
     destroy() {
-        console.log(this);
         this.destroyEntity(this.DOMContainer, 15000);
     }
 }
+
+export default Wall

@@ -19,6 +19,7 @@ html, body {
     z-index: 10;
 }
 
+
 .fireshot {
     background-position-y: 126px;
     transform: rotate(315deg);
@@ -31,7 +32,7 @@ html, body {
     transform: rotate(270deg);
 }
 
-.fade-out {
+/* .fade-out {
     animation: fadeOut ease 0.5s;
     -webkit-animation: fadeOut ease 0.5s;
     -moz-animation: fadeOut ease 0.5s;
@@ -46,7 +47,7 @@ html, body {
     100% {
       opacity:0;
     }
-  }
+  } */
 
 .restart {
     font-family: 'Press Start 2P', cursive;
