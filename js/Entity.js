@@ -1,5 +1,4 @@
 class Entity {
-
     setPos(pos) {
         this.pos = pos;
     }

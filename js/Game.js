@@ -4,7 +4,7 @@ import Wall from './Wall.js'
 import Sprite from './Sprite.js'
 import HealthHUD from './HUD/HealthHUD.js';
 
-class Board {
+class Game {
     constructor() {
         this.DOMContainer = document.querySelector("#board");
 
@@ -12,10 +12,6 @@ class Board {
             x: 512,
             y: 512
         };
-
-        this.backgroundClass = Background;
-        this.playerClass = Player;
-        this.wallClass = Wall;
 
         this.players = {};
         this.walls = [];
@@ -27,18 +23,18 @@ class Board {
         this.initPlayer();
         this.initHUD();
     }
-
-    initBackground() {
-        this.background = new this.backgroundClass(this, '../assets/img/background.png');
-    }
-
+    
     initBoard() {
         this.DOMContainer.style.width = this.size.x + "px";
         this.DOMContainer.style.height = this.size.y + "px";
     }
 
+    initBackground() {
+        this.background = new Background(this, '../assets/img/background.png');
+    }
+
     initPlayer() {
-        this.players = new this.playerClass(
+        this.players = new Player(
             this,
             {
                 x: 300,
@@ -56,7 +52,7 @@ class Board {
     initWalls() {
         setInterval(() => {
             this.walls.push(
-                new this.wallClass(
+                new Wall(
                     this,
                     {
                         x: 128,
@@ -70,7 +66,9 @@ class Board {
     initHUD() {
         this.HUD.healthHUD = new HealthHUD()
     }
+
+    
 }
 
-new Board()
-export default Board
+new Game()
+export default Game

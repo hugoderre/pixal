@@ -1,6 +1,6 @@
 import Entity from "./Entity.js";
 
-class DynamicEntity extends Entity {
+class PhysicEntity extends Entity  {
     
     isCollision(direction) {
         // Wall colision handling
@@ -72,4 +72,4 @@ class DynamicEntity extends Entity {
     }
 }
 
-export default DynamicEntity
+export default PhysicEntity

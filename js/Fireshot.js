@@ -1,7 +1,7 @@
-import Entity from './Entity.js'
+import PhysicEntity from './PhysicsEntity.js';
 import { Animations } from './Utils.js';
 
-class Fireshot extends Entity {
+class Fireshot extends PhysicEntity {
     constructor(hitbox, frameSpeed, sprite, player) {
         super(parent)
         this.board = player.board;

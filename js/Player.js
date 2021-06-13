@@ -1,8 +1,8 @@
-import DynamicEntity from './DynamicEntity.js';
 import Fireshot from './Fireshot.js'
 import Sprite from './Sprite.js';
+import PhysicEntity from './PhysicsEntity.js';
 
-class Player extends DynamicEntity {
+class Player extends PhysicEntity {
 
     constructor(board, pos, hitbox, speed, sprite = '') {
         super(parent)
