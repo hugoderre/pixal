@@ -2,7 +2,7 @@ import PhysicEntity from './PhysicEntity.js';
 import { Animations } from '../../Utils.js';
 
 class Fireshot extends PhysicEntity {
-    constructor(hitbox, frameSpeed, sprite, player) {
+    constructor(size, frameSpeed, sprite, player) {
         super(parent)
 
         this.game = player.game;
@@ -14,7 +14,7 @@ class Fireshot extends PhysicEntity {
         this.sprite = sprite;
         this.player = player;
         this.pos = this.player.pos
-        this.hitbox = hitbox;
+        this.size = size;
         this.classList = [
             'fireshot'
         ];
@@ -44,9 +44,9 @@ class Fireshot extends PhysicEntity {
             if (Object.hasOwnProperty.call(this.game.entities.walls, key)) {
                 const wall = this.game.entities.walls[key];
                 if (
-                    this.fireShotPosX > wall.pos.x - this.hitbox.y
-                    && this.fireShotPosX < wall.pos.x + wall.hitbox.x
-                    && (this.fireShotPosY === wall.pos.y + wall.hitbox.y || this.fireShotPosY === wall.pos.y + wall.hitbox.y - this.frameSpeed)
+                    this.fireShotPosX > wall.pos.x - this.size.y
+                    && this.fireShotPosX < wall.pos.x + wall.size.x
+                    && (this.fireShotPosY === wall.pos.y + wall.size.y || this.fireShotPosY === wall.pos.y + wall.size.y - this.frameSpeed)
                 ) {
                     Animations.fadeOut(wall.DOMContainer)
                     this.destroyEntity(wall, 'walls', 500);

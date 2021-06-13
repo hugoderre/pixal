@@ -3,8 +3,8 @@ class Entity {
         this.pos = pos;
     }
 
-    setHitbox(hitbox) {
-        this.hitbox = hitbox;
+    setSize(size) {
+        this.size = size;
     }
 
     setContainer() {
@@ -12,8 +12,8 @@ class Entity {
         this.DOMContainer.style.position = 'absolute';
         this.DOMContainer.style.top = this.pos.y + 'px';
         this.DOMContainer.style.left = this.pos.x + 'px';
-        this.DOMContainer.style.height = this.hitbox.y + 'px';
-        this.DOMContainer.style.width = this.hitbox.x + 'px';
+        this.DOMContainer.style.height = this.size.y + 'px';
+        this.DOMContainer.style.width = this.size.x + 'px';
 
         for (const className of this.classList) {
             this.DOMContainer.classList.add(className);

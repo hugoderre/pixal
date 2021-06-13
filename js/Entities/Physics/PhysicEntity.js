@@ -11,9 +11,9 @@ class PhysicEntity extends Entity  {
                     case 'top':
                         if (
                             this.pos.y == 0
-                            || this.pos.x > wall.pos.x - this.hitbox.y
-                            && this.pos.x < wall.pos.x + wall.hitbox.x 
-                            && (this.pos.y === wall.pos.y + wall.hitbox.y || this.pos.y === wall.pos.y + wall.hitbox.y - 1)
+                            || this.pos.x > wall.pos.x - this.size.y
+                            && this.pos.x < wall.pos.x + wall.size.x 
+                            && (this.pos.y === wall.pos.y + wall.size.y || this.pos.y === wall.pos.y + wall.size.y - 1)
                         ) {
                             this.pos.y++
                             return true;
@@ -21,10 +21,10 @@ class PhysicEntity extends Entity  {
                         break;
                     case 'bottom':
                         if (
-                            this.pos.y == this.game.size.y - this.hitbox.y
-                            || this.pos.x > wall.pos.x - this.hitbox.y
-                            && this.pos.x < wall.pos.x + wall.hitbox.x
-                            && this.pos.y === wall.pos.y - this.hitbox.y
+                            this.pos.y == this.game.size.y - this.size.y
+                            || this.pos.x > wall.pos.x - this.size.y
+                            && this.pos.x < wall.pos.x + wall.size.x
+                            && this.pos.y === wall.pos.y - this.size.y
                         ) {
                             return true;
                         }
@@ -32,19 +32,19 @@ class PhysicEntity extends Entity  {
                     case 'left':
                         if (
                             this.pos.x == 0
-                            || this.pos.y > wall.pos.y - this.hitbox.x
-                            && this.pos.y < wall.pos.y + wall.hitbox.y
-                            && this.pos.x === wall.pos.x + wall.hitbox.x
+                            || this.pos.y > wall.pos.y - this.size.x
+                            && this.pos.y < wall.pos.y + wall.size.y
+                            && this.pos.x === wall.pos.x + wall.size.x
                         ) {
                             return true;
                         }
                         break;
                     case 'right':
                         if (
-                            this.pos.x == this.game.size.x - this.hitbox.x
-                            || this.pos.y > wall.pos.y - this.hitbox.x
-                            && this.pos.y < wall.pos.y + wall.hitbox.y
-                            && this.pos.x === wall.pos.x - this.hitbox.x
+                            this.pos.x == this.game.size.x - this.size.x
+                            || this.pos.y > wall.pos.y - this.size.x
+                            && this.pos.y < wall.pos.y + wall.size.y
+                            && this.pos.x === wall.pos.x - this.size.x
                         ) {
                             return true;
                         }

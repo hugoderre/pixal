@@ -4,7 +4,7 @@ import PhysicEntity from './PhysicEntity.js';
 
 class Player extends PhysicEntity {
 
-    constructor(game, pos, hitbox, speed, sprite = '') {
+    constructor(game, pos, size, speed, sprite = '') {
         super(parent)
         
         this.game = game;
@@ -20,7 +20,7 @@ class Player extends PhysicEntity {
         ];
 
         this.setPos(pos);
-        this.setHitbox(hitbox);
+        this.setSize(size);
         
         this.playerDOM = this.setContainer()
         // Setup sprite if defined
