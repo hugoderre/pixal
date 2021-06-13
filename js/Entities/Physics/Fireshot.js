@@ -1,5 +1,5 @@
-import PhysicEntity from './PhysicsEntity.js';
-import { Animations } from './Utils.js';
+import PhysicEntity from './PhysicEntity.js';
+import { Animations } from '../../Utils.js';
 
 class Fireshot extends PhysicEntity {
     constructor(hitbox, frameSpeed, sprite, player) {

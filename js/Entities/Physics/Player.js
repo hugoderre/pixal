@@ -1,6 +1,6 @@
 import Fireshot from './Fireshot.js'
-import Sprite from './Sprite.js';
-import PhysicEntity from './PhysicsEntity.js';
+import Sprite from '../Sprite.js';
+import PhysicEntity from './PhysicEntity.js';
 
 class Player extends PhysicEntity {
 

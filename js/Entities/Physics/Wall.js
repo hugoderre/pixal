@@ -1,5 +1,5 @@
-import PhysicEntity from "./PhysicsEntity.js";
-import Sprite from "./Sprite.js";
+import PhysicEntity from "./PhysicEntity.js";
+import Sprite from "../Sprite.js";
 
 class Wall extends PhysicEntity {
     constructor(game, hitbox, sprite = new Sprite('../assets/img/asteroids.png')) {

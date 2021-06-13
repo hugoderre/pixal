@@ -1,8 +1,8 @@
-import Background from './Background.js'
-import Player from './Player.js'
-import Wall from './Wall.js'
-import Sprite from './Sprite.js'
-import HealthHUD from './HUD/HealthHUD.js';
+import Background from './Entities/Background.js'
+import Player from './Entities/Physics/Player.js'
+import Wall from './Entities/Physics/Wall.js'
+import Sprite from './Entities/Sprite.js'
+import HealthHUD from './Entities/HUD/HealthHUD.js';
 
 class Game {
     constructor() {
