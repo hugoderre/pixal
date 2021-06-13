@@ -8,6 +8,10 @@ class Player extends PhysicEntity {
         super(parent)
         
         this.game = game;
+
+        // Set player in global entities array
+        this.game.entities.players = [... this.game.entities.players, this]
+
         this.speed = speed;
         this.scrollSpeed = 20;
         this.sprite = sprite;
@@ -17,13 +21,13 @@ class Player extends PhysicEntity {
 
         this.setPos(pos);
         this.setHitbox(hitbox);
-
+        
         this.playerDOM = this.setContainer()
         // Setup sprite if defined
         if(this.sprite instanceof Sprite) {
             this.sprite.setSprite(this);
         }
-
+        
         this.keyHandler({
             32: this.fireshot.bind(this),
             37: this.left.bind(this),
@@ -31,7 +35,7 @@ class Player extends PhysicEntity {
             39: this.right.bind(this),
             40: this.bottom.bind(this)
         });
-
+        
         this.initScroll(this.scrollSpeed, false);
         this.fireshot()
     }

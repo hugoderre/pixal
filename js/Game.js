@@ -13,9 +13,10 @@ class Game {
             y: 512
         };
 
-        this.players = {};
-        this.walls = [];
-        this.HUD = {};
+        this.entities = {};
+        this.entities.players = [];
+        this.entities.walls = [];
+        this.entities.fireshots = [];
 
         this.initGame();
         this.initBackground();
@@ -23,7 +24,7 @@ class Game {
         this.initPlayer();
         this.initHUD();
     }
-    
+
     initGame() {
         this.DOMContainer.style.width = this.size.x + "px";
         this.DOMContainer.style.height = this.size.y + "px";
@@ -34,40 +35,42 @@ class Game {
     }
 
     initPlayer() {
-        this.players = new Player(
-            this,
-            {
-                x: 300,
-                y: 300
-            },
-            {
-                x: 30,
-                y: 30
-            },
-            1,
-            new Sprite('../assets/img/spaceship.png', true),
-        )
+        this.entities.players = [
+            new Player(
+                this,
+                {
+                    x: 300,
+                    y: 300
+                },
+                {
+                    x: 30,
+                    y: 30
+                },
+                1,
+                new Sprite('../assets/img/spaceship.png', true),
+            )
+        ]
     }
 
     initWalls() {
         setInterval(() => {
-            this.walls.push(
-                new Wall(
-                    this,
-                    {
-                        x: 128,
-                        y: 128
-                    },
-                )
-            )
+
+            this.entities.walls = [... this.entities.walls, new Wall(
+                this,
+                {
+                    x: 128,
+                    y: 128
+                },
+            )]
+            console.log(this.entities);
         }, 2000)
     }
 
     initHUD() {
-        this.HUD.healthHUD = new HealthHUD()
+        new HealthHUD()
     }
 
-    
+
 }
 
 new Game()

@@ -24,9 +24,13 @@ class Entity {
         return this.DOMContainer;
     }
 
-    destroyEntity(toDestroy, delay = 0, options = {}) {
-        setTimeout(() => {
-            toDestroy.remove()
+    destroyEntity(toDestroy, type, delay = 0, options = {}) {
+        return setTimeout(() => {
+            let indexEntity = this.game.entities[type].indexOf(toDestroy);
+            if(indexEntity >= 0) {
+                this.game.entities[type].splice(this.game.entities[type].indexOf(toDestroy), 1)
+                toDestroy.DOMContainer.remove() 
+            }
         }, delay);
     }
 }
