@@ -1,7 +1,7 @@
 html, body {
     height:100%;
 }
-#board {
+#game {
     border: 1px solid black;
     position: absolute;
     top:40vh;

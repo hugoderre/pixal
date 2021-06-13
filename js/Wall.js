@@ -2,12 +2,12 @@ import PhysicEntity from "./PhysicsEntity.js";
 import Sprite from "./Sprite.js";
 
 class Wall extends PhysicEntity {
-    constructor(board, hitbox, sprite = new Sprite('../assets/img/asteroids.png')) {
+    constructor(game, hitbox, sprite = new Sprite('../assets/img/asteroids.png')) {
         super(parent);
         this.classList = [
             'wall'
         ];
-        this.board = board;
+        this.game = game;
         this.hitbox = hitbox;
         this.sprite = sprite;
         this.scrollSpeed = 20;
@@ -24,7 +24,7 @@ class Wall extends PhysicEntity {
     }
 
     randomPos() {
-        let limitX = this.board.size.x - this.hitbox.x
+        let limitX = this.game.size.x - this.hitbox.x
         let pos = {};
         pos.x = Math.floor(Math.random() * limitX); ;
         pos.y = -100;

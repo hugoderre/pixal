@@ -19,7 +19,7 @@ class Entity {
             this.DOMContainer.classList.add(className);
         }
 
-        document.getElementById('board').prepend(this.DOMContainer);
+        document.getElementById('game').prepend(this.DOMContainer);
 
         return this.DOMContainer;
     }

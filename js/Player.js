@@ -4,10 +4,10 @@ import PhysicEntity from './PhysicsEntity.js';
 
 class Player extends PhysicEntity {
 
-    constructor(board, pos, hitbox, speed, sprite = '') {
+    constructor(game, pos, hitbox, speed, sprite = '') {
         super(parent)
         
-        this.board = board;
+        this.game = game;
         this.speed = speed;
         this.scrollSpeed = 20;
         this.sprite = sprite;

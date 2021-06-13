@@ -4,9 +4,9 @@ class PhysicEntity extends Entity  {
     
     isCollision(direction) {
         // Wall colision handling
-        for (const key in this.board.walls) {
-            if (Object.hasOwnProperty.call(this.board.walls, key)) {
-                const wall = this.board.walls[key];
+        for (const key in this.game.walls) {
+            if (Object.hasOwnProperty.call(this.game.walls, key)) {
+                const wall = this.game.walls[key];
                 switch (direction) {
                     case 'top':
                         if (
@@ -21,7 +21,7 @@ class PhysicEntity extends Entity  {
                         break;
                     case 'bottom':
                         if (
-                            this.pos.y == this.board.size.y - this.hitbox.y
+                            this.pos.y == this.game.size.y - this.hitbox.y
                             || this.pos.x > wall.pos.x - this.hitbox.y
                             && this.pos.x < wall.pos.x + wall.hitbox.x
                             && this.pos.y === wall.pos.y - this.hitbox.y
@@ -41,7 +41,7 @@ class PhysicEntity extends Entity  {
                         break;
                     case 'right':
                         if (
-                            this.pos.x == this.board.size.x - this.hitbox.x
+                            this.pos.x == this.game.size.x - this.hitbox.x
                             || this.pos.y > wall.pos.y - this.hitbox.x
                             && this.pos.y < wall.pos.y + wall.hitbox.y
                             && this.pos.x === wall.pos.x - this.hitbox.x

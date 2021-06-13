@@ -6,7 +6,7 @@ import HealthHUD from './HUD/HealthHUD.js';
 
 class Game {
     constructor() {
-        this.DOMContainer = document.querySelector("#board");
+        this.DOMContainer = document.querySelector("#game");
 
         this.size = {
             x: 512,
@@ -17,14 +17,14 @@ class Game {
         this.walls = [];
         this.HUD = {};
 
-        this.initBoard();
+        this.initGame();
         this.initBackground();
         this.initWalls();
         this.initPlayer();
         this.initHUD();
     }
     
-    initBoard() {
+    initGame() {
         this.DOMContainer.style.width = this.size.x + "px";
         this.DOMContainer.style.height = this.size.y + "px";
     }

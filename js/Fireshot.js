@@ -4,7 +4,7 @@ import { Animations } from './Utils.js';
 class Fireshot extends PhysicEntity {
     constructor(hitbox, frameSpeed, sprite, player) {
         super(parent)
-        this.board = player.board;
+        this.game = player.game;
         this.frameSpeed = frameSpeed;
         this.sprite = sprite;
         this.player = player;
@@ -36,15 +36,15 @@ class Fireshot extends PhysicEntity {
     }
 
     handleShotCollision() {
-        for (const key in this.board.walls) {
-            if (Object.hasOwnProperty.call(this.board.walls, key)) {
-                const wall = this.board.walls[key];
+        for (const key in this.game.walls) {
+            if (Object.hasOwnProperty.call(this.game.walls, key)) {
+                const wall = this.game.walls[key];
                 if (
                     this.fireShotPosX > wall.pos.x - this.hitbox.y
                     && this.fireShotPosX < wall.pos.x + wall.hitbox.x
                     && (this.fireShotPosY === wall.pos.y + wall.hitbox.y || this.fireShotPosY === wall.pos.y + wall.hitbox.y - this.frameSpeed)
                 ) {
-                    delete this.board.walls[key]
+                    delete this.game.walls[key]
                     Animations.fadeOut(wall.DOMContainer)
                     this.destroyEntity(wall.DOMContainer, 500);
                     Animations.fadeOut(this.fireshotDOM)
