@@ -109,7 +109,7 @@ class Player extends PhysicEntity {
                 y: 30
             },
             1,
-            new Sprite('../assets/img/fireshot.png', true),
+            new Sprite('./assets/img/fireshot.png', true),
             this
         )
     }

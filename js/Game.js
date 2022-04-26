@@ -31,7 +31,7 @@ class Game {
     }
 
     initBackground() {
-        this.background = new Background(this, '../assets/img/background.png');
+        this.background = new Background(this, './assets/img/background.png');
     }
 
     initPlayer() {
@@ -47,7 +47,7 @@ class Game {
                     y: 30
                 },
                 1,
-                new Sprite('../assets/img/spaceship.png', true),
+                new Sprite('./assets/img/spaceship.png', true),
             )
         ]
     }
@@ -62,7 +62,6 @@ class Game {
                     y: 128
                 },
             )]
-            console.log(this.entities);
         }, 2000)
     }
 

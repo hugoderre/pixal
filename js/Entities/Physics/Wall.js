@@ -2,7 +2,7 @@ import PhysicEntity from "./PhysicEntity.js";
 import Sprite from "../Sprite.js";
 
 class Wall extends PhysicEntity {
-    constructor(game, size, sprite = new Sprite('../assets/img/asteroids.png')) {
+    constructor(game, size, sprite = new Sprite('./assets/img/asteroids.png')) {
         super(parent);
 
         this.game = game;
