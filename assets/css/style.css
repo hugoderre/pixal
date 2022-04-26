@@ -1,5 +1,6 @@
 html, body {
     height:100%;
+    background-image: url('../img/body-background2.jpg');
 }
 
 #game {
@@ -24,13 +25,6 @@ html, body {
 .fireshot {
     background-position-y: 126px;
     transform: rotate(315deg);
-}
-
-.fireshotBurn {
-    background-image: url('./assets/img/fireshot.png');
-    background-position-y: 110px;
-    background-position-x: 175px;
-    transform: rotate(270deg);
 }
 
 /* .fade-out {
@@ -65,11 +59,13 @@ html, body {
     margin: auto;
     display: block;
     text-align: center;
-    border:1px solid black;
+    border:1px solid white;
     padding:10px 20px;
 }
 
 .control-tip {
     position: relative;
     top: 20px;
+    color: white;
+    background-color: black;
 }
