@@ -1,4 +1,4 @@
-# pixal
+# Pixal Invaders
 A little 2D game in pure JS <br>
 Space Invaders-likes 👾 (by far)
 https://hugoderre.github.io/pixal/ to play 🎮 <br>
