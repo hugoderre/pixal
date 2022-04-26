@@ -44,7 +44,7 @@ html, body {
     }
   } */
 
-.restart {
+.controls {
     position: absolute;
     top:30vh;
     left:50%;
@@ -52,7 +52,7 @@ html, body {
     font-family: 'Press Start 2P', cursive;
 }
 
-.restart > a {
+.restart {
     text-decoration: none;
     color: white;
     background-color: black;
@@ -61,6 +61,7 @@ html, body {
     text-align: center;
     border:1px solid white;
     padding:10px 20px;
+    cursor: pointer;
 }
 
 .control-tip {
